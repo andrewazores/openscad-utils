@@ -1,21 +1,21 @@
 include <Logging.scad>
 include <Units.scad>
 
-module HexNut(flatWidth, height) {
-    cylinder(r=flatWidth / 2 / cos(30) + 0.1, height, $fn=6);
+module HexNut(flatWidth, height, center) {
+    cylinder(r=flatWidth / 2 / cos(30) + 0.1, height, $fn=6, center=center);
 }
 
-module ImperialNut(key = -1) {
+module ImperialNut(key = -1, center=false) {
     if (key != -1) {
-        HexNut(widthTable(key), heightTable(key));
+        HexNut(widthTable(key), heightTable(key), center);
     } else {
         logError("ImperialNut invoked without key");
     }
 }
 
-module MetricNut(key = -1) {
+module MetricNut(key = -1, center=false) {
     if (key != -1) {
-        HexNut(widthTable(key), heightTable(key));
+        HexNut(widthTable(key), heightTable(key), center);
     } else {
         logError("MetricNut invoked without key");
     }
