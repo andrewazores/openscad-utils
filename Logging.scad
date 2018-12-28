@@ -1,3 +1,3 @@
 module logError(msg) {
-    echo("<font color=red><b>", msg, "</b></font>");
+    echo(str("<font color=red><b>", msg, "</b></font>"));
 }
